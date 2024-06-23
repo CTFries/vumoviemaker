@@ -276,7 +276,7 @@ function makeFrames(rows, world) {
     console.log(row);
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
-      .map((val, index) => (index < 8 ? parseInt(val) : val));
+      .map((val, index) => (index != 7 ? parseInt(val) : val));
     console.log(
       "day: ",
       day,
@@ -304,7 +304,6 @@ function makeFrames(rows, world) {
     }
 
     if (type === "city") {
-      console.log("city: ", row);
       frames[frame].cities.push({
         x: Math.round((X + world.size) * mapScale),
         y: Math.round((Y + world.size) * mapScale),
@@ -314,7 +313,6 @@ function makeFrames(rows, world) {
         color: getColor(kingdomId, ownerId),
       });
     } else if (type === "army") {
-      console.log("army: ", row);
       frames[frame].armies.push({
         x: (X + world.size) * mapScale,
         y: (Y + world.size) * mapScale,
