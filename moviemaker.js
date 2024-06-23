@@ -472,6 +472,7 @@ async function getKingdomBanners(kingdoms) {
           await fs.writeFile(`./kdbanners/${imgName}`, imageData);
           return makeBannerCanvas(kingdomId, imageData);
         } catch (downloadErr) {
+          console.log(kingdomBannerUrl);
           console.log(downloadErr);
           if (downloadErr.code === 404) {
             // Kingdom has no kingdom banner
