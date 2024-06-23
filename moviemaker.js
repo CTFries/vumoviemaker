@@ -208,7 +208,7 @@ function getImageDataFromUrl(url) {
             `Unable to get image from url=${url} (response.statusCode=${response.statusCode})`
           );
           error.statusCode = response.statusCode;
-          return;
+          return error;
         }
 
         const data = [];
