@@ -1,16 +1,10 @@
 {
-  "name": "moviemaker",
+  "name": "vumoviemaker",
   "version": "1.0.0",
   "description": "Create end of era videos",
   "main": "moviemaker.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "JZ",
-  "license": "ISC",
-  "dependencies": {
-    "canvas": "^1.6.6",
-    "mysql": "^2.14.1",
-    "voronoi": "^1.0.0"
-  }
+  "repository": "https://github.com/CTFries/vumoviemaker.git",
+  "author": "Chris Fries <me@ctfries.dev>",
+  "license": "MIT",
+  "private": false
 }
