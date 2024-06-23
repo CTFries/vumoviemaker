@@ -6,6 +6,7 @@
 // The software is provided "as is" without any warranty. Use at your own risk!
 // Under no circumstance should the authors be held responsible for any damages that this software might cause.
 const fs = require("fs").promises;
+const fsSync = require("fs");
 const path = require("path");
 const http = require("http");
 const { createCanvas, loadImage } = require("canvas");
