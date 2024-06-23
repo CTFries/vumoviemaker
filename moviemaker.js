@@ -204,9 +204,6 @@ function getImageDataFromUrl(url) {
     http
       .get(url, (response) => {
         if (response.statusCode !== 200) {
-          console.log(
-            `Unable to get image from url=${url} response.statusCode=${response.statusCode}`
-          );
           const error = new Error(
             `Unable to get image from url=${url} (response.statusCode=${response.statusCode})`
           );
@@ -475,6 +472,7 @@ async function getKingdomBanners(kingdoms) {
           await fs.writeFile(`./kdbanners/${imgName}`, imageData);
           return makeBannerCanvas(kingdomId, imageData);
         } catch (downloadErr) {
+          console.log(downloadErr);
           if (downloadErr.code === 404) {
             // Kingdom has no kingdom banner
             return randomColor();
