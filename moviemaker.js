@@ -273,28 +273,9 @@ function makeFrames(rows, world) {
   const colonySize = [10, 10, 20, 30, 40, 50, 60, 70, 75, 75];
 
   for (const row of rows) {
-    console.log(row);
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
       .map((val, index) => (index != 6 ? parseInt(val) : val));
-    console.log(
-      "day: ",
-      day,
-      "X: ",
-      X,
-      "Y: ",
-      Y,
-      "kingdomId: ",
-      kingdomId,
-      "worldId: ",
-      worldId,
-      "size: ",
-      size,
-      "type: ",
-      type,
-      "ownerId: ",
-      ownerId
-    );
     if (day !== currentDay) {
       if (TEST) break;
       frame = frames.push({ cities: [], armies: [] }) - 1;
@@ -313,9 +294,6 @@ function makeFrames(rows, world) {
         color: getColor(kingdomId, ownerId),
       });
     } else if (type == "army") {
-      console.log(
-        `plotting army x: ${X} y: ${Y} kingdomId: ${kingdomId} ownerId: ${ownerId}`
-      );
       frames[frame].armies.push({
         x: (X + world.size) * mapScale,
         y: (Y + world.size) * mapScale,
