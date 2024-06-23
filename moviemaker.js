@@ -76,6 +76,7 @@ async function main() {
 
     const mapBackground = await makeMapBackground(world);
     const frames = makeFrames(rows, world);
+    console.log(frames.length);
 
     let kingdomBanners;
     if (SHOW_KINGDOM_BANNERS) {
