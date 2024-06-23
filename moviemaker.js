@@ -273,6 +273,7 @@ function makeFrames(rows, world) {
   const colonySize = [10, 10, 20, 30, 40, 50, 60, 70, 75, 75];
 
   for (const row of rows) {
+    console.log(row);
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
       .map((val, index) => (index < 8 ? parseInt(val) : val));
@@ -286,6 +287,7 @@ function makeFrames(rows, world) {
     }
 
     if (type === "city") {
+      console.log("city: ", row);
       frames[frame].cities.push({
         x: Math.round((X + world.size) * mapScale),
         y: Math.round((Y + world.size) * mapScale),
@@ -295,6 +297,7 @@ function makeFrames(rows, world) {
         color: getColor(kingdomId, ownerId),
       });
     } else if (type === "army") {
+      console.log("army: ", row);
       frames[frame].armies.push({
         x: (X + world.size) * mapScale,
         y: (Y + world.size) * mapScale,
