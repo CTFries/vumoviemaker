@@ -5,12 +5,11 @@
 
 // The software is provided "as is" without any warranty. Use at your own risk!
 // Under no circumstance should the authors be held responsible for any damages that this software might cause.
-
-import fs from "fs/promises";
-import path from "path";
-import http from "http";
-import { createCanvas, loadImage } from "canvas";
-import Voronoi from "voronoi";
+const fs = require("fs").promises;
+const path = require("path");
+const http = require("http");
+const { createCanvas, loadImage } = require("canvas");
+const Voronoi = require("voronoi");
 
 const TEST = process.argv[4] === "-t"; // Outputs only one image if set to true
 
@@ -528,3 +527,7 @@ function zeroPad(nr) {
 }
 
 main().catch(console.error);
+
+module.exports = {
+  main,
+};
