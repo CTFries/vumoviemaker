@@ -272,7 +272,6 @@ function makeFrames(rows, world) {
   const colonySize = [10, 10, 20, 30, 40, 50, 60, 70, 75, 75];
 
   for (const row of rows) {
-    console.log(row);
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
       .map((val, index) => (index != 6 && index < 8 ? parseInt(val) : val));
@@ -283,7 +282,24 @@ function makeFrames(rows, world) {
         console.warn(`Warning: day=${day} currentDay=${currentDay}`);
       currentDay = day;
     }
-
+    console.log(
+      "day",
+      day,
+      "X",
+      X,
+      "Y",
+      Y,
+      "kingdomId",
+      kingdomId,
+      "worldId",
+      worldId,
+      "size",
+      size,
+      "type",
+      type,
+      "ownerId",
+      ownerId
+    );
     if (type == "city") {
       frames[frame].cities.push({
         x: Math.round((X + world.size) * mapScale),
