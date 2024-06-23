@@ -505,10 +505,10 @@ async function getKingdomBanners(kingdoms) {
 }
 
 async function saveImage(canvas, filePath) {
-  const out = fs.createWriteStream(filePath);
-  const stream = canvas.createPNGStream();
-  stream.pipe(out);
-  await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
+    const out = fsSync.createWriteStream(filePath);
+    const stream = canvas.createPNGStream();
+    stream.pipe(out);
     out.on("finish", () => {
       console.log(`Saved ${filePath}`);
       resolve();
@@ -527,6 +527,18 @@ function zeroPad(nr) {
 }
 
 main().catch(console.error);
+async function saveImage(canvas, filePath) {
+  return new Promise((resolve, reject) => {
+    const out = fsSync.createWriteStream(filePath);
+    const stream = canvas.createPNGStream();
+    stream.pipe(out);
+    out.on("finish", () => {
+      console.log(`Saved ${filePath}`);
+      resolve();
+    });
+    out.on("error", reject);
+  });
+}
 
 module.exports = {
   main,
