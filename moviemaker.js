@@ -283,7 +283,6 @@ function makeFrames(rows, world) {
       currentDay = day;
     }
     if (type == "city") {
-      console.log(`city ${X} ${Y} ${kingdomId} ${ownerId}`);
       frames[frame].cities.push({
         x: Math.round((X + world.size) * mapScale),
         y: Math.round((Y + world.size) * mapScale),
@@ -293,8 +292,6 @@ function makeFrames(rows, world) {
         color: getColor(kingdomId, ownerId),
       });
     } else if (type == "army") {
-      console.log(`army ${X} ${Y} ${kingdomId} ${ownerId}`);
-
       frames[frame].armies.push({
         x: (X + world.size) * mapScale,
         y: (Y + world.size) * mapScale,
