@@ -277,7 +277,24 @@ function makeFrames(rows, world) {
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
       .map((val, index) => (index < 8 ? parseInt(val) : val));
-
+    console.log(
+      "day: ",
+      day,
+      "X: ",
+      X,
+      "Y: ",
+      Y,
+      "kingdomId: ",
+      kingdomId,
+      "worldId: ",
+      worldId,
+      "size: ",
+      size,
+      "type: ",
+      type,
+      "ownerId: ",
+      ownerId
+    );
     if (day !== currentDay) {
       if (TEST) break;
       frame = frames.push({ cities: [], armies: [] }) - 1;
