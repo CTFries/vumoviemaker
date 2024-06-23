@@ -84,7 +84,7 @@ async function main() {
       kingdomBanners = await getKingdomBanners(kingdoms);
       console.timeEnd("Get kingdom banners");
     }
-
+    console.log(frames.length);
     for (let i = 0; i < frames.length; i++) {
       await paintFrame(frames[i], i, mapBackground, kingdomBanners);
     }
@@ -298,7 +298,6 @@ function makeFrames(rows, world) {
         color: getColor(kingdomId, ownerId),
       });
     }
-    console.log(frames);
   }
 
   console.timeEnd(`Parsing ${rows.length} rows of csv data`);
