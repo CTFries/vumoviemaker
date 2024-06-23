@@ -272,9 +272,10 @@ function makeFrames(rows, world) {
   const colonySize = [10, 10, 20, 30, 40, 50, 60, 70, 75, 75];
 
   for (const row of rows) {
+    console.log(row);
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
-      .map((val, index) => (index != 6 ? parseInt(val) : val));
+      .map((val, index) => (index != 6 && index < 8 ? parseInt(val) : val));
     if (day !== currentDay) {
       if (TEST) break;
       frame = frames.push({ cities: [], armies: [] }) - 1;
