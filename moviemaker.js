@@ -276,7 +276,7 @@ function makeFrames(rows, world) {
     console.log(row);
     const [day, X, Y, kingdomId, worldId, size, type, ownerId] = row
       .split(",")
-      .map((val, index) => (index != 7 ? parseInt(val) : val));
+      .map((val, index) => (index != 6 ? parseInt(val) : val));
     console.log(
       "day: ",
       day,
