@@ -298,6 +298,7 @@ function makeFrames(rows, world) {
         color: getColor(kingdomId, ownerId),
       });
     }
+    console.log(frames);
   }
 
   console.timeEnd(`Parsing ${rows.length} rows of csv data`);
