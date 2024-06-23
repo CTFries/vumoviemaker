@@ -303,7 +303,7 @@ function makeFrames(rows, world) {
       currentDay = day;
     }
 
-    if (type === "city") {
+    if (type == "city") {
       frames[frame].cities.push({
         x: Math.round((X + world.size) * mapScale),
         y: Math.round((Y + world.size) * mapScale),
@@ -312,7 +312,10 @@ function makeFrames(rows, world) {
         ownerId: ownerId,
         color: getColor(kingdomId, ownerId),
       });
-    } else if (type === "army") {
+    } else if (type == "army") {
+      console.log(
+        `plotting army x: ${X} y: ${Y} kingdomId: ${kingdomId} ownerId: ${ownerId}`
+      );
       frames[frame].armies.push({
         x: (X + world.size) * mapScale,
         y: (Y + world.size) * mapScale,
