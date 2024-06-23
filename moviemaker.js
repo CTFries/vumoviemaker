@@ -203,11 +203,11 @@ function getImageDataFromUrl(url) {
     http
       .get(url, (response) => {
         if (response.statusCode !== 200) {
-          reject(
-            new Error(
-              `Unable to get image from url=${url} (response.statusCode=${response.statusCode})`
-            )
+          const error = new Error(
+            `Unable to get image from url=${url} (response.statusCode=${response.statusCode})`
           );
+          error.statusCode = response.statusCode;
+          reject(error);
           return;
         }
 
