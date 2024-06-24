@@ -204,7 +204,8 @@ function getImageDataFromUrl(url) {
     http
       .get(url, (response) => {
         if (response.statusCode === 404) {
-          return response;
+          console.log(response);
+          return response.statusCode;
         }
 
         const data = [];
